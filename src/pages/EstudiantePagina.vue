@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Pagina Estudiante</h1>
+    <h1>Estudiante</h1>
     <Estudiante/>
   </div>
 </template>
@@ -16,4 +16,7 @@ export default {
 </script>
 
 <style>
+
+
+
 </style>
