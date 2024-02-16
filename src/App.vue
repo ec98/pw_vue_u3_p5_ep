@@ -1,6 +1,7 @@
 <template>
   <div>
-    <EstudiantePagina />
+    <!-- <EstudiantePagina /> -->
+    <router-view />
   </div>
 </template>
 
