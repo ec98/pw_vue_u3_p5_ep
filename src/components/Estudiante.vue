@@ -3,8 +3,7 @@
     <div class="container">
       <div class="consultStyles">
         <!-- <h1>Componente Estudiante</h1> -->
-        <label class="idConsult" for="id">Id</label>
-        <input class="inputConsult" id="id" v-model="id" type="text" />
+        <input class="inputConsult" id="id" v-model="id" type="text" placeholder="Ingrese ID" />
         <button class="buttonConsult" @click="consultId">Consultar</button>
       </div>
       <div class="insertStyles">
@@ -37,6 +36,8 @@
 
         <button class="buttonInsert" @click="insertarEs">Insertar</button>
         <button class="buttonInsert" @click="limpiar">Limpiar</button>
+        <button class="buttonInsert" @click="actualizarId">Actualizar</button>
+        <button class="buttonInsert" @click="eliminarId">Eliminar</button>
       </div>
     </div>
   </div>
@@ -45,7 +46,9 @@
 <script>
 import {
   consultEstudianteFachada,
-  insertEstudentFachada
+  insertEstudentFachada,
+  updateEstudentFachada,
+  deleteEstudentFachada
 } from "../helpers/clienteEstudiante.js";
 
 export default {
@@ -92,6 +95,23 @@ export default {
         fechaNacimiento: this.fechaNacimiento
       };
       await insertEstudentFachada(bodyEstu);
+    },
+    async actualizarId() {
+      const body = {
+        nombre: this.nombre,
+        apellido: this.apellido,
+        genero: this.genero,
+        carrera: this.carrera,
+        gratuidad: this.gratuidad,
+        edad: this.edad,
+        direccion: this.direccion,
+        facultad: this.facultad,
+        fechaNacimiento: this.fechaNacimiento
+      };
+      await updateEstudentFachada(this.id, body);
+    },
+    async eliminarId() {
+      await deleteEstudentFachada(this.id);
     },
     limpiar() {
       this.id = null;
