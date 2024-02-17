@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h1>Estudiante</h1>
+  <div v-if="!refresh">
+    <!-- <h1>Estudiante</h1> -->
     <Estudiante/>
   </div>
 </template>
@@ -9,6 +9,11 @@
 import Estudiante from "../components/Estudiante.vue";
 
 export default {
+  data(){
+    return {
+      refresh: false,
+    }
+  },
   components: {
     Estudiante
   }
