@@ -4,7 +4,7 @@
     <div class="pageConsult">
       <input class="inputConsult" id="id" v-model="id" type="text" placeholder="Ingrese ID" />
       <button class="buttonConsult" @click="consultId">Consultar</button>
-      <div v-if="info" class="infoConsult">
+      <div class="infoConsult">
         <label for="idNombre">Nombre</label>
         <input id="idNombre" v-model="nombre" type="text" />
 
@@ -44,6 +44,14 @@ export default {
       info: false,
     };
   },
+  created(){
+    console.log(this.$route)
+    console.log(this.$route.params.id)
+    console.log(this.$route.query)
+    console.log(this.$route.query.anio)
+    console.log(this.$route.query.mes)
+    // this.consultId();
+  },
   methods: {
     async consultId() {
       const data = await consultEstudianteFachada(this.id);
@@ -58,7 +66,7 @@ export default {
       this.direccion = data.direccion;
       this.facultad = data.facultad;
       this.fechaNacimiento = data.fechaNacimiento;
-      this.info = true;
+      // this.info = true;
     }
   }
 };
