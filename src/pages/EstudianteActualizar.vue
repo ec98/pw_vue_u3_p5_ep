@@ -91,6 +91,10 @@ export default {
   align-items: center;
 }
 
+.pageActualizar{
+  margin: 30px;
+}
+
 .infoConsult {
   display: grid;
   grid-template-rows: repeat(1, 20px);
